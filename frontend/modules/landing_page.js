@@ -37,10 +37,10 @@ function addCityToDOM(id, city, description, image) {
   // TODO: MODULE_CITIES
   // 1. Populate the City details and insert those details into the DOM
  let card = document.createElement("div")
- card.id=id
+//  card.id=id
  card.className = "col-6 col-lg-3 mb-3"
  card.innerHTML=`
- <a href="pages/adventures/?city=${id}" >
+ <a href="/pages/adventures/?city=${id}" id=${id}>
 <div class="tile">
 <div class="tile-text text-center">
     <h5>${city}</h5>
