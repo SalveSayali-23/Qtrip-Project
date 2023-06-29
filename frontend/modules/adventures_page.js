@@ -5,20 +5,65 @@ import config from "../conf/index.js";
 function getCityFromURL(search) {
   // TODO: MODULE_ADVENTURES
   // 1. Extract the city id from the URL's Query Param and return it
-
+  const params = new URLSearchParams(search)
+ const cityId= params.get("city")
+//  console.log(cityId)
+ return cityId
 }
 
 //Implementation of fetch call with a paramterized input based on city
 async function fetchAdventures(city) {
   // TODO: MODULE_ADVENTURES
   // 1. Fetch adventures using the Backend API and return the data
-
+  try{
+  const res=await fetch(config.backendEndpoint +`/adventures?city=${city}`)
+  const data=await res.json()
+  // console.log(data)
+  return data
+  }
+  catch(e){
+    return null
+  }
 }
 
 //Implementation of DOM manipulation to add adventures for the given city from list of adventures
 function addAdventureToDOM(adventures) {
   // TODO: MODULE_ADVENTURES
   // 1. Populate the Adventure Cards and insert those details into the DOM
+ adventures.forEach(({id,category, image, name, costPerHead, duration
+  })=>{
+    let cardDetail = document.createElement("div")
+    cardDetail.className ="col-6 col-lg-3 mb-3 category-con"
+    // console.log(cardDetail)
+    cardDetail.innerHTML = `
+      <a href="detail/?adventure=${id}" id=${id}>
+      <div class="category-banner">${category}</div>
+      <div class="activity-card">
+      
+      <img class="card-img-top" src=${image} /> 
+      <div class="card-body text-center w-100 px-3 d-md-flex justify-content-between pl-3 pr-3">
+      
+      <h5 class="card-text" > ${name} </h5>
+      <p class="card-text">${costPerHead}</p>
+      </div>
+
+     <div class="card-body text-center w-100 px-3 d-md-flex justify-content-between pl-3 pr-3">
+     <h5 class="card-text" >Duration </h5>
+     <p class="card-text">${duration} hours</p>
+     </div>
+
+      </div>
+     
+      </a>
+    `
+    document.getElementById("data").appendChild(cardDetail)
+   }
+
+
+   )
+    
+
+
 
 }
 
