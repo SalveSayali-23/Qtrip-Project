@@ -49,7 +49,8 @@ function addAdventureToDOM(adventures) {
 
      <div class="card-body text-center w-100 px-3 d-md-flex justify-content-between pl-3 pr-3">
      <h5 class="card-text" >Duration </h5>
-     <p class="card-text">${duration} hours</p>
+     <p class="card-text">${duration} hours
+     </p>
      </div>
 
       </div>
