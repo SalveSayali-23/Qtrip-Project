@@ -38,7 +38,7 @@ function addAdventureDetailsToDOM(adventure) {
  document.getElementById("adventure-subtitle").innerHTML=adventure.subtitle
  adventure.images.map((img)=>{
   let imageElement = document.createElement("div")
-  //imageElement.className="activity-card-image"
+ 
   imageElement.innerHTML=`<img src="${img}" class="activity-card-image pb-3 pb-md-0"/>`
   document.getElementById("photo-gallery").appendChild(imageElement)
 })
@@ -86,7 +86,8 @@ function addBootstrapPhotoGallery(images) {
       console.log(imageElement)
     }
     //imageElement.classList.add( "carousel-item","col-lg-12",)
-  imageElement.innerHTML=`<img src="${img}"  alt="..." class="activity-card-image pb-3 pb-md-0"/>`
+  imageElement.innerHTML=`<img src="${img}"  alt="..."
+   class="activity-card-image pb-3 pb-md-0"/>`
   console.log(imageElement)
   //document.getElementById("photo-gallery").append(imageElement)
   document.querySelector(".carousel-inner").appendChild(imageElement)
